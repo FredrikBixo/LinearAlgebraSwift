@@ -1,6 +1,5 @@
 
-//
-//  Created by Fredrik Bixo on 2016-12-20.
+//  Created by Fredrik Bixo on 2016-12-21.
 //  Copyright © 2016 FredrikBixo. All rights reserved.
 //
 
@@ -75,9 +74,15 @@ class Matrix {
     fileprivate var array: [[Double]]
     
     init(rows:Int, columns:Int) {
-        
         array =  Array(repeating: Array(repeating: 0, count: columns), count: rows)
-        
+    }
+    
+    convenience init(dimension:Int) {
+        self.init(rows:dimension,columns:dimension)
+    }
+    
+    convenience init() {
+        self.init(rows:3,columns:3)
     }
     
     subscript(row:Int, column:Int) -> Double {
@@ -143,7 +148,7 @@ extension Vector {
         m[1] = (left[2]*right[3]) - (left[3]*right[2])
         m[2] = (left[3]*right[1]) - (left[1]*right[3])
         m[3] = (left[1]*right[2]) - (left[2]*right[1])
-
+        
         return m
     }
     
@@ -157,14 +162,14 @@ extension Double {
         // throws maybe
         
         let m = Vector(dims:right.dims)
-
+        
         for row in 1...right.dims {
             m[row] = left*right[row]
         }
         
         return m
     }
-
+    
 }
 
 class Vector {
@@ -205,13 +210,13 @@ class Vector {
     subscript(row:String) -> Double {
         get {
             if let m = mappings[row] {
-            return array[m-1]
+                return array[m-1]
             }
             return 0
         }
         set(newValue) {
             if let m = mappings[row] {
-            array[m-1] = newValue
+                array[m-1] = newValue
             }
         }
     }
