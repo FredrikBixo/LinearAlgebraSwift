@@ -17,17 +17,17 @@ print(identityMatrix.description())
 
 
 let vector = Vector(dims:2)
-vector.addMapping(mapping: ("x",1))
 
-vector["x"] = 2
+vector[1] = 2
 vector[2] = 1
 
 
 let vector2 = Vector(dims:2)
 vector2.addMapping(mapping: ("x",1))
-vector2["x"] = 2
-vector2[2] = 3
+vector2.addMapping(mapping: ("y",2))
 
+vector2["x"] = 2
+vector2["y"] = 3
 
 print("proj:")
 print(vector2.projectOnto(vector: vector).description())
