@@ -23,8 +23,8 @@ vector[2] = 1
 
 
 let vector2 = Vector(dims:2)
-vector2.addMapping(mapping: ("x",1))
-vector2.addMapping(mapping: ("y",2))
+vector2.addConvienceSubscript(mapping: ("x",1))
+vector2.addConvienceSubscript(mapping: ("y",2))
 
 vector2["x"] = 2
 vector2["y"] = 3

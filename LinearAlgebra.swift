@@ -180,14 +180,13 @@ class Vector {
     
     private var array: [Double]
     
-    private var mappings = [String:Int]()
+    private var mappings = ["x":1,"y":2,"z":3]
     
     init(dims:Int) {
-        
         array =  Array(repeating: 0, count: dims)
     }
     
-    public func addMapping(mapping:(String,Int)) {
+    public func addConvienceSubscript(mapping:(String,Int)) {
         mappings[mapping.0] = mapping.1
     }
     
