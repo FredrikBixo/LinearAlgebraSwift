@@ -34,12 +34,12 @@ print(vector2.projectOnto(vector: vector).description())
 
 let crossProductVector = (vector×vector2)
 
-print("crossProduct: ")
+print("crossProduct:")
 print(crossProductVector?.description())
 print("dot product: \((vector*vector2)!)")
 
 
 let m = identityMatrix * vector
 
-print("matrixSum: ")
+print("matrixSum:")
 print(m?.description())
