@@ -7,7 +7,7 @@ import Foundation
 
 infix operator *
 infix operator ×
-
+infix operator ≈
 // MARK: Matrix Operators
 
 extension Matrix {
@@ -117,6 +117,7 @@ class IdentityMatrix:Matrix {
 // MARK: Vector Operators
 
 extension Vector {
+    
     static func * (left: Vector, right: Vector) -> Double? {
         
         // throws maybe
@@ -170,12 +171,33 @@ extension Double {
         return m
     }
     
+    static func ≈ (left: Double, right: Double) -> Bool {
+        
+        // throws maybe
+        
+        return Float(left) == Float(right)
+    }
+
+    
 }
 
 class Vector {
     
     var dims:Int {
         return array.count
+    }
+    
+    var isUnitVector:Bool {
+        
+        var sum:Double = 0
+        
+        for row in 1...self.dims {
+             sum += pow(self[row], 2)
+        }
+    
+        print(sqrt(sum))
+        
+        return sqrt(sum) ≈ 1.0
     }
     
     private var array: [Double]
