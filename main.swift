@@ -40,8 +40,18 @@ print("dot product: \((vector*vector2)!)")
 
 print(vector2.isUnitVector)
 
-
+identityMatrix[1,1] = 0
+identityMatrix[2,1] = 1
+identityMatrix[3,1] = 3
+identityMatrix[1,2] = 3
+identityMatrix[2,2] = 3
+identityMatrix[3,2] = 3
+identityMatrix[1,3] = 12
+identityMatrix[2,3] = 123
+identityMatrix[3,3] = 3
 let m = identityMatrix * vector
 
 print("matrixSum:")
 print(m?.description())
+
+print(identityMatrix.determinant)

@@ -67,8 +67,54 @@ class Matrix {
         return array[0].count
     }
     
-    var determinant:Int {
-        return 0
+    var determinant:Double {
+        return findDeterminant(matrix: self)
+    }
+    
+    private func findDeterminant(matrix:Matrix) -> Double {
+        
+        var sum:Double = 0.0
+
+        func getMatrix(ignore:Int) -> Matrix {
+            
+        var matrix2 = Matrix(rows: matrix.rows-1, columns: matrix.columns-1)
+            
+            var column = 1
+            
+            for i in 1...matrix.columns {
+                if ignore == i {
+                    continue
+                }
+                
+                
+            for d in 2...matrix.rows {
+                matrix2[d-1,column] = matrix[d,i]
+            }
+                
+           column += 1
+
+                
+            }
+
+            return matrix2
+          
+        }
+        
+        for index in 1...columns {
+            
+            let matrix3 = getMatrix(ignore:index)
+            
+            if matrix3.columns == 2 {
+            sum += (pow(-1, 1+Double(index)) * matrix[1,index]) * ((matrix3[1,1]*matrix3[2,2]) - (matrix3[1,2]*matrix3[2,1]))
+            } else {
+            sum += (pow(-1, 1+Double(index)) * matrix[1,index]) * findDeterminant(matrix: matrix3)
+            }
+            
+        }
+    
+
+        
+        return sum
     }
     
     fileprivate var array: [[Double]]
